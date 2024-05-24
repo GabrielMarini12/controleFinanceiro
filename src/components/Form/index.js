@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Grid from "../Grid";
 import * as C from "./styles";
 
-const Form = ({ handleAdd, transactionList, setTransactionList }) => {
+const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
   const [desc, setDesc] = useState("");
   const [amount, setAmount] = useState("");
   const [isExpense, setExpense] = useState(false);
@@ -38,7 +38,6 @@ const Form = ({ handleAdd, transactionList, setTransactionList }) => {
           <C.Label>Descrição</C.Label>
           <C.Input value={desc} onChange={(e) => setDesc(e.target.value)} />
         </C.InputContent>
-
         <C.InputContent>
           <C.Label>Valor</C.Label>
           <C.Input
@@ -47,7 +46,6 @@ const Form = ({ handleAdd, transactionList, setTransactionList }) => {
             onChange={(e) => setAmount(e.target.value)}
           />
         </C.InputContent>
-
         <C.RadioGroup>
           <C.Input
             type="radio"
@@ -60,16 +58,14 @@ const Form = ({ handleAdd, transactionList, setTransactionList }) => {
           <C.Input
             type="radio"
             id="rExpenses"
-            defaultChecked
             name="group1"
             onChange={() => setExpense(!isExpense)}
           />
           <C.Label htmlFor="rExpenses">Saída</C.Label>
         </C.RadioGroup>
-
         <C.Button onClick={handleSave}>ADICIONAR</C.Button>
       </C.Container>
-      <Grid itens={transactionList} setItens={setTransactionList} />
+      <Grid itens={transactionsList} setItens={setTransactionsList} />
     </>
   );
 };

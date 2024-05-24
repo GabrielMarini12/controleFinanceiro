@@ -6,12 +6,12 @@ import {
   FaTrash,
 } from "react-icons/fa";
 
-const GridItem = ({ item, OnDelete }) => {
+const GridItem = ({ item, onDelete }) => {
   return (
     <C.Tr>
       <C.Td>{item.desc}</C.Td>
       <C.Td>{item.amount}</C.Td>
-      <C.Td alingnCenter>
+      <C.Td alignCenter>
         {item.expense ? (
           <FaRegArrowAltCircleDown color="red" />
         ) : (
@@ -19,7 +19,7 @@ const GridItem = ({ item, OnDelete }) => {
         )}
       </C.Td>
       <C.Td alignCenter>
-        <FaTrash onClick={() => OnDelete(item.id)} />
+        <FaTrash onClick={() => onDelete(item.id)} />
       </C.Td>
     </C.Tr>
   );
